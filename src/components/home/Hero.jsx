@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroBg from "../../assets/hero-bg.svg";
 const Hero = () => {
     return (
@@ -14,9 +15,11 @@ const Hero = () => {
                                 Browse, book, and embark on your next adventure
                                 with ease.
                             </p>
-                            <button className="btn btn-primary">
-                                Buy Tickets
-                            </button>
+                            <Link to="/booking">
+                                <button className="btn btn-primary">
+                                    Buy Tickets
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

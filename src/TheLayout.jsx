@@ -1,19 +1,19 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
 import Booking from "./pages/booking/Booking";
+import Home from "./pages/home/Home";
 const TheLayout = () => {
     return (
         <>
-            <Navbar></Navbar>
-            <main>
-                <Router>
+            <Router basename="/">
+                <Navbar></Navbar>
+                <main>
                     <Routes>
                         <Route path="/" element={<Home></Home>} />
                         <Route path="/booking" element={<Booking></Booking>} />
                     </Routes>
-                </Router>
-            </main>
+                </main>
+            </Router>
         </>
     );
 };
