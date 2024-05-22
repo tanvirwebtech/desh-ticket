@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import SearchForm from "../../components/bookings/SearchForm";
+import SearchResult from "./../../components/bookings/SearchResult";
 
 const Booking = () => {
     return (
@@ -12,6 +13,9 @@ const Booking = () => {
                     </h2>
                     <div className="bus-search-form">
                         <SearchForm />
+                    </div>
+                    <div className="search-results">
+                        <SearchResult></SearchResult>
                     </div>
                 </div>
             </div>
