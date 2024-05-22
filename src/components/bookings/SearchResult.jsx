@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import bus from "../../assets/bus.png";
+import { Link } from "react-router-dom";
 const SearchResult = () => {
     return (
         <div>
@@ -113,9 +114,11 @@ const SearchResult = () => {
                                 <td>1:00 PM</td>
                                 <td>
                                     <div>36</div>{" "}
-                                    <button className="btn btn-xs border">
-                                        View Seats
-                                    </button>{" "}
+                                    <Link to={"/booking/view-seats"}>
+                                        <button className="btn btn-xs border">
+                                            View Seats
+                                        </button>{" "}
+                                    </Link>
                                 </td>
                                 <td>600</td>
                             </tr>
