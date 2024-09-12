@@ -3,30 +3,30 @@ import React from "react";
 
 const PrivacyPolicy = () => {
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
+        <div className="max-w-4xl mx-auto p-6 shadow-md rounded-lg mt-6">
             <h1 className="text-3xl font-bold mb-4 text-center">
                 Privacy Policy
             </h1>
             <p className="text-sm mb-4 text-gray-500">
-                Effective Date: [Insert Date]
+                Effective Date: 01/11/2024
             </p>
 
             <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">
                     1. Information We Collect
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We collect several types of information from and about users
                     of our Platform, including:
                 </p>
                 <h3 className="text-xl font-semibold mb-2">
                     1.1 Personal Information
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     When you create an account, make a booking, or contact us,
                     we may collect the following personal information:
                 </p>
-                <ul className="list-disc pl-5 mb-4 text-gray-700">
+                <ul className="list-disc pl-5 mb-4  ">
                     <li>Name</li>
                     <li>Email address</li>
                     <li>Phone number</li>
@@ -40,10 +40,10 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-semibold mb-2">
                     1.2 Non-Personal Information
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We may collect non-personal information, such as:
                 </p>
-                <ul className="list-disc pl-5 mb-4 text-gray-700">
+                <ul className="list-disc pl-5 mb-4  ">
                     <li>Browser type and version</li>
                     <li>IP address</li>
                     <li>Operating system</li>
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-semibold mb-2">
                     1.3 Cookies and Tracking Technologies
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We use cookies, web beacons, and other tracking technologies
                     to enhance your experience on our Platform. You can disable
                     cookies through your browser settings, but this may affect
@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     2. How We Use Your Information
                 </h2>
-                <ul className="list-disc pl-5 mb-4 text-gray-700">
+                <ul className="list-disc pl-5 mb-4  ">
                     <li>
                         <strong>To provide our services:</strong> To process
                         bookings, manage your account, and offer customer
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     3. Sharing Your Information
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We do not sell or rent your personal information to third
                     parties. However, we may share your information in the
                     following circumstances:
@@ -109,7 +109,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-semibold mb-2">
                     3.1 With Bus Operators
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     When you make a booking, we share relevant personal
                     information (e.g., name, contact details, booking reference)
                     with the respective bus operator to process your
@@ -119,7 +119,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-semibold mb-2">
                     3.2 Service Providers
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We may share your information with third-party service
                     providers who perform services on our behalf, such as
                     payment processors, customer support providers, and email
@@ -129,7 +129,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-semibold mb-2">
                     3.3 Legal Requirements
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We may disclose your information if required by law or in
                     response to a legal process (e.g., a court order, subpoena),
                     or when we believe it is necessary to protect our rights or
@@ -141,7 +141,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     4. Data Security
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We implement reasonable security measures to protect your
                     personal information from unauthorized access, disclosure,
                     alteration, or destruction. However, no method of
@@ -154,7 +154,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     5. Data Retention
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We retain your personal information for as long as necessary
                     to fulfill the purposes for which it was collected. Once no
                     longer needed, we will delete or anonymize the information
@@ -164,7 +164,7 @@ const PrivacyPolicy = () => {
 
             <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">6. Your Rights</h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     Depending on your location, you may have certain rights
                     regarding your personal information, including access,
                     correction, deletion, objection, and data portability. To
@@ -177,7 +177,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     7. Third-Party Links
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     Our Platform may contain links to third-party websites. We
                     are not responsible for the privacy practices of those
                     websites, and we encourage you to review their privacy
@@ -189,7 +189,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     8. Children’s Privacy
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     Our Platform is not intended for children under the age of
                     13. We do not knowingly collect personal information from
                     children under 13. If you believe that we have collected
@@ -202,7 +202,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold mb-2">
                     9. Changes to This Privacy Policy
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     We may update this Privacy Policy from time to time. When we
                     make changes, we will revise the "Effective Date" at the top
                     of this page. We encourage you to review this policy
@@ -213,21 +213,21 @@ const PrivacyPolicy = () => {
 
             <section className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">10. Contact Us</h2>
-                <p className="text-gray-700 mb-4">
+                <p className="  mb-4">
                     If you have any questions about this Privacy Policy, please
                     contact us at:
                 </p>
-                <address className="not-italic text-gray-700 mb-4">
+                <address className="not-italic   mb-4">
                     <strong>Desh Ticket</strong>
                     <br />
-                    [Insert Address]
+                    Sylhet, Bangladesh
                     <br />
                     Email:{" "}
                     <a href="mailto:[Insert Email]" className="text-blue-500">
-                        [Insert Email]
+                        contact@deshticket.com
                     </a>
                     <br />
-                    Phone: [Insert Phone Number]
+                    Phone: +880123456789
                 </address>
             </section>
         </div>

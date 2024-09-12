@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import bkash from "../../assets/bkash.png";
 import nagad from "../../assets/nagad.png";
 import rocket from "../../assets/rocket.png";
+import useSessionTimer from "../../hooks/useSessionTimer";
 
 const Checkout = () => {
     const [selectPaymentMethod, setSelectPaymentMethod] = useState(null);
     const [timeLeft, setTimeLeft] = useState(300);
-
+    const { sessionActive } = useSessionTimer();
     useEffect(() => {
         if (timeLeft > 0) {
             const timerId = setInterval(() => {
@@ -14,7 +15,7 @@ const Checkout = () => {
             }, 1000);
             return () => clearInterval(timerId);
         }
-    }, [timeLeft]);
+    }, [timeLeft, sessionActive]);
 
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);

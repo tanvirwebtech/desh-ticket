@@ -5,10 +5,12 @@ import { GiSteeringWheel } from "react-icons/gi";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-// import SeatIcon from "./SeatIcon";
+import useSessionTimer from "../../hooks/useSessionTimer";
+
 
 const ViewSeats = () => {
     const [selectedSeat, setSelectedSeat] = useState([]);
+    const { startSession } = useSessionTimer();
     const navigate = useNavigate();
     const {
         register,
@@ -210,6 +212,7 @@ const ViewSeats = () => {
     const onSubmit = (data) => {
         const newData = { ...data, selectedSeat };
         console.log(newData);
+        startSession;
         navigate("/checkout");
     };
     return (
@@ -436,27 +439,7 @@ const ViewSeats = () => {
                                     </div>
                                 ))}
 
-                                {/* {errors.phone?.type === "required" && (
-                                    <div
-                                        role="alert"
-                                        className="alert alert-warning"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-6 w-6 shrink-0 stroke-current"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            />
-                                        </svg>
-                                        <span>Phone is required!</span>
-                                    </div>
-                                )} */}
+                            
                             </div>
                         </div>
                         <div className="">
