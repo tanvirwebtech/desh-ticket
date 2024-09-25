@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { GiSteeringWheel } from "react-icons/gi";
 import { MdOutlineContactPhone } from "react-icons/md";
+import { TbListDetails } from "react-icons/tb";
 
 import { FaPhoneAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // import SeatIcon from "./SeatIcon";
 
 const ViewSeats = () => {
@@ -207,27 +209,8 @@ const ViewSeats = () => {
     };
 
     const onSubmit = (data) => {
-        console.log(data);
-        // passengers.forEach((e) => {
-        //     if (e.nid === data.nid) {
-        //         if (
-        //             new Date(e.birth).getDay() ===
-        //             new Date(data.birth_date).getDay()
-        //         ) {
-        //             if (
-        //                 new Date(e.birth).getMonth() ===
-        //                 new Date(data.birth_date).getMonth()
-        //             ) {
-        //                 if (
-        //                     new Date(e.birth).getFullYear() ===
-        //                     new Date(data.birth_date).getFullYear()
-        //                 ) {
-        //                     setPassenger(e);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // });
+        const newData = { ...data, selectedSeat };
+        console.log(newData);
     };
     return (
         <div>
@@ -378,11 +361,11 @@ const ViewSeats = () => {
                     >
                         <div>
                             <div className="contact-info">
-                                <h2 className="flex items-center gap-2 text-3xl justify-center">
+                                <h2 className="flex items-center gap-2 text-3xl font-medium justify-center uppercase">
                                     <MdOutlineContactPhone />
                                     Contact info:
                                 </h2>
-                                <label className="input input-bordered flex items-center gap-2 my-2">
+                                <label className="input input-bordered flex items-center gap-2 mt-4">
                                     <FaPhoneAlt />
                                     Phone
                                     <input
@@ -395,7 +378,7 @@ const ViewSeats = () => {
                                 </label>
                             </div>
 
-                            <h3 className="my-2 font-medium text-center">
+                            <h3 className="my-2 font-medium text-center text-2xl">
                                 Passenger Details
                             </h3>
                             <div className="passenger-details">
@@ -468,37 +451,75 @@ const ViewSeats = () => {
                         </div>
                         <div className="">
                             <div className="seat-selection">
-                                <h3>Journey Details</h3>
-                                <div className="details">
-                                    <p>Fare: {fare}/- (Per seat)</p>
-                                    <div>
-                                        Selected Seats:
-                                        {selectedSeat
-                                            ? selectedSeat.map((s) => (
-                                                  <button
-                                                      key={s}
-                                                      className={`p-1  border rounded-md mx-1 my-1 disabled:bg-red-200
-                                                                   `}
-                                                      disabled
-                                                      title="This seat is booked"
-                                                  >
-                                                      {s}
-                                                  </button>
-                                              ))
-                                            : 0}
-                                    </div>
+                                <h3 className="font-medium text-3xl flex items-center gap-2 uppercase">
+                                    <TbListDetails />
+                                    Journey Details
+                                </h3>
+                                <div className="details mt-2">
+                                    <div className="overflow-x-auto">
+                                        <table className="table">
+                                            {/* head */}
 
-                                    <p>
-                                        Total Cost:{" "}
-                                        {selectedSeat
-                                            ? selectedSeat.length * fare
-                                            : 0}{" "}
-                                    </p>
+                                            <tbody>
+                                                {/* row 1 */}
+                                                <tr>
+                                                    <td>Bus Id:</td>
+                                                    <td>ENA25065</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fare:</td>
+                                                    <td>{fare}/- (Per seat)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Selected Seats:</td>
+                                                    <td>
+                                                        <div>
+                                                            {selectedSeat
+                                                                ? selectedSeat.map(
+                                                                      (s) => (
+                                                                          <button
+                                                                              key={
+                                                                                  s
+                                                                              }
+                                                                              className={`p-1  border rounded-md mx-1 my-1 disabled:bg-red-200
+                                                                   `}
+                                                                              disabled
+                                                                              title="This seat is booked"
+                                                                          >
+                                                                              {
+                                                                                  s
+                                                                              }
+                                                                          </button>
+                                                                      )
+                                                                  )
+                                                                : 0}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total Cost:</td>
+                                                    <td>
+                                                        {selectedSeat
+                                                            ? selectedSeat.length *
+                                                              fare
+                                                            : 0}
+                                                        Tk
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div className="proceed-btn">
-                                    <button type="submit">
-                                        Proceed to checkout
-                                    </button>
+                                <div className="proceed-btn mt-4">
+                                    <Link to="/checkout">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary uppercase w-full"
+                                            disabled={!selectedSeat.length}
+                                        >
+                                            Proceed to checkout
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
