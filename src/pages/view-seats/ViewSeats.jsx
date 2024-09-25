@@ -1,10 +1,20 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { GiSteeringWheel } from "react-icons/gi";
+import { MdOutlineContactPhone } from "react-icons/md";
 
+import { FaPhoneAlt } from "react-icons/fa";
 // import SeatIcon from "./SeatIcon";
 
 const ViewSeats = () => {
     const [selectedSeat, setSelectedSeat] = useState([]);
+
+    const {
+        register,
+        handleSubmit,
+        // formState: { errors },
+    } = useForm();
+
     const seats = {
         seat_layout: [
             {
@@ -180,6 +190,7 @@ const ViewSeats = () => {
         ],
     };
     const fare = 600;
+
     const handleSelectSeat = (seat) => {
         let newSeats = [];
         if (selectedSeat.includes(seat)) {
@@ -187,10 +198,36 @@ const ViewSeats = () => {
             setSelectedSeat(newSeats);
             console.log(newSeats, "if");
         } else {
+            if (selectedSeat.length === 4)
+                return alert("You can select maximum 4 seats at a time!");
             newSeats = [...selectedSeat, seat];
             setSelectedSeat(newSeats);
             console.log(newSeats);
         }
+    };
+
+    const onSubmit = (data) => {
+        console.log(data);
+        // passengers.forEach((e) => {
+        //     if (e.nid === data.nid) {
+        //         if (
+        //             new Date(e.birth).getDay() ===
+        //             new Date(data.birth_date).getDay()
+        //         ) {
+        //             if (
+        //                 new Date(e.birth).getMonth() ===
+        //                 new Date(data.birth_date).getMonth()
+        //             ) {
+        //                 if (
+        //                     new Date(e.birth).getFullYear() ===
+        //                     new Date(data.birth_date).getFullYear()
+        //                 ) {
+        //                     setPassenger(e);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
     };
     return (
         <div>
@@ -222,8 +259,8 @@ const ViewSeats = () => {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
-                    <div className="col-span-1">
+                <div className="grid grid-cols-3 gap-3 my-4">
+                    <div className="">
                         <div className="mx-auto my-4 p-2 border">
                             <div className="steering m-1">
                                 <GiSteeringWheel className="ml-auto text-5xl" />
@@ -334,37 +371,138 @@ const ViewSeats = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-2">
-                        <div className="seat-selection">
-                            <h3>Journey Details</h3>
-                            <div className="details">
-                                <p>Fare: {fare}/- (Per seat)</p>
-                                <div>
-                                    Selected Seats:
-                                    {selectedSeat
-                                        ? selectedSeat.map((s) => (
-                                              <button
-                                                  key={s}
-                                                  className={`p-1  border rounded-md mx-1 my-1 disabled:bg-red-200
-                                                                   `}
-                                                  disabled
-                                                  title="This seat is booked"
-                                              >
-                                                  {s}
-                                              </button>
-                                          ))
-                                        : 0}
-                                </div>
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="col-span-2 grid grid-cols-2 gap-4
+                        "
+                    >
+                        <div>
+                            <div className="contact-info">
+                                <h2 className="flex items-center gap-2 text-3xl justify-center">
+                                    <MdOutlineContactPhone />
+                                    Contact info:
+                                </h2>
+                                <label className="input input-bordered flex items-center gap-2 my-2">
+                                    <FaPhoneAlt />
+                                    Phone
+                                    <input
+                                        type="tel"
+                                        className="grow w-full max-w-xs"
+                                        {...register("phone", {
+                                            required: true,
+                                        })}
+                                    />
+                                </label>
+                            </div>
 
-                                <p>
-                                    Total Cost:{" "}
-                                    {selectedSeat
-                                        ? selectedSeat.length * fare
-                                        : 0}{" "}
-                                </p>
+                            <h3 className="my-2 font-medium text-center">
+                                Passenger Details
+                            </h3>
+                            <div className="passenger-details">
+                                {selectedSeat?.map((s, index) => (
+                                    <div key={s} className="p-1 m-2">
+                                        Passenger {index + 1}
+                                        <label className="input input-bordered flex items-center gap-2 my-2">
+                                            Full Name
+                                            <input
+                                                type="text"
+                                                className="grow w-full max-w-xs"
+                                                {...register(
+                                                    `p${index + 1}_name`,
+                                                    {
+                                                        required: true,
+                                                    }
+                                                )}
+                                            />
+                                        </label>
+                                        <label className=" flex items-center gap-2 my-2">
+                                            <input
+                                                type="radio"
+                                                name="p1_gender"
+                                                className="radio"
+                                                {...register(
+                                                    `p${index + 1}_gender`
+                                                )}
+                                                value={"male"}
+                                                defaultChecked
+                                            />
+                                            Male
+                                            <label className="  flex items-center gap-2 my-2">
+                                                <input
+                                                    type="radio"
+                                                    name="p1_gender"
+                                                    className="radio"
+                                                    {...register(
+                                                        `p${index + 1}_gender`
+                                                    )}
+                                                    value={"female"}
+                                                />
+                                                Female
+                                            </label>
+                                        </label>
+                                    </div>
+                                ))}
+
+                                {/* {errors.phone?.type === "required" && (
+                                    <div
+                                        role="alert"
+                                        className="alert alert-warning"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6 shrink-0 stroke-current"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            />
+                                        </svg>
+                                        <span>Phone is required!</span>
+                                    </div>
+                                )} */}
                             </div>
                         </div>
-                    </div>
+                        <div className="">
+                            <div className="seat-selection">
+                                <h3>Journey Details</h3>
+                                <div className="details">
+                                    <p>Fare: {fare}/- (Per seat)</p>
+                                    <div>
+                                        Selected Seats:
+                                        {selectedSeat
+                                            ? selectedSeat.map((s) => (
+                                                  <button
+                                                      key={s}
+                                                      className={`p-1  border rounded-md mx-1 my-1 disabled:bg-red-200
+                                                                   `}
+                                                      disabled
+                                                      title="This seat is booked"
+                                                  >
+                                                      {s}
+                                                  </button>
+                                              ))
+                                            : 0}
+                                    </div>
+
+                                    <p>
+                                        Total Cost:{" "}
+                                        {selectedSeat
+                                            ? selectedSeat.length * fare
+                                            : 0}{" "}
+                                    </p>
+                                </div>
+                                <div className="proceed-btn">
+                                    <button type="submit">
+                                        Proceed to checkout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
