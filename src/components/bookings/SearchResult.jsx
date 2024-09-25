@@ -48,73 +48,7 @@ const SearchResult = () => {
                                 <td>1:00 PM</td>
                                 <td>
                                     <div>36</div>
-                                    <button className="btn btn-xs border">
-                                        View Seats
-                                    </button>
-                                </td>
-                                <td>600</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img
-                                                    src={bus}
-                                                    alt="Bus Image"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">
-                                                Ena Transport
-                                            </div>
-                                            <div className="text-sm opacity-50">
-                                                AC
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>6:30 AM</span>
-                                </td>
-                                <td>1:00 PM</td>
-                                <td>
-                                    <div>36</div>
-                                    <button className="btn btn-xs border">
-                                        View Seats
-                                    </button>
-                                </td>
-                                <td>600</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img
-                                                    src={bus}
-                                                    alt="Bus Image"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">
-                                                Ena Transport
-                                            </div>
-                                            <div className="text-sm opacity-50">
-                                                AC
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>6:30 AM</span>
-                                </td>
-                                <td>1:00 PM</td>
-                                <td>
-                                    <div>36</div>{" "}
-                                    <Link to={"/booking/view-seats"}>
+                                    <Link to={"/view-seats"}>
                                         <button className="btn btn-xs border">
                                             View Seats
                                         </button>{" "}
@@ -149,9 +83,81 @@ const SearchResult = () => {
                                 <td>1:00 PM</td>
                                 <td>
                                     <div>36</div>
-                                    <button className="btn btn-xs border">
-                                        View Seats
-                                    </button>
+                                    <Link to={"/view-seats"}>
+                                        <button className="btn btn-xs border">
+                                            View Seats
+                                        </button>{" "}
+                                    </Link>
+                                </td>
+                                <td>600</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img
+                                                    src={bus}
+                                                    alt="Bus Image"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">
+                                                Ena Transport
+                                            </div>
+                                            <div className="text-sm opacity-50">
+                                                AC
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>6:30 AM</span>
+                                </td>
+                                <td>1:00 PM</td>
+                                <td>
+                                    <div>36</div>{" "}
+                                    <Link to={"/view-seats"}>
+                                        <button className="btn btn-xs border">
+                                            View Seats
+                                        </button>{" "}
+                                    </Link>
+                                </td>
+                                <td>600</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img
+                                                    src={bus}
+                                                    alt="Bus Image"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">
+                                                Ena Transport
+                                            </div>
+                                            <div className="text-sm opacity-50">
+                                                AC
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>6:30 AM</span>
+                                </td>
+                                <td>1:00 PM</td>
+                                <td>
+                                    <div>36</div>
+                                    <Link to={"/view-seats"}>
+                                        <button className="btn btn-xs border">
+                                            View Seats
+                                        </button>{" "}
+                                    </Link>
                                 </td>
                                 <td>600</td>
                             </tr>
