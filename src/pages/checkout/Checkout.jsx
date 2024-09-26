@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import bkash from "../../assets/bkash.png";
 import nagad from "../../assets/nagad.png";
 import rocket from "../../assets/rocket.png";
-import { HiMiniCreditCard } from "react-icons/hi2";
+
 const Checkout = () => {
     const [selectPaymentMethod, setSelectPaymentMethod] = useState(null);
+    const [timeLeft, setTimeLeft] = useState(300);
+
+    useEffect(() => {
+        if (timeLeft > 0) {
+            const timerId = setInterval(() => {
+                setTimeLeft(timeLeft - 1);
+            }, 1000);
+            return () => clearInterval(timerId);
+        }
+    }, [timeLeft]);
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+    };
     const paymentMethods = [
         {
             id: 1,
@@ -27,6 +43,8 @@ const Checkout = () => {
             image: "https://w7.pngwing.com/pngs/48/549/png-transparent-swipe-card-icon-credit-card-bank-card-debit-card-money-card-card-material-blue-text-rectangle-thumbnail.png",
         },
     ];
+    const [checked, setChecked] = useState(false);
+
     return (
         <div>
             <div className="container mx-auto">
@@ -45,7 +63,10 @@ const Checkout = () => {
                                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                             ></path>
                         </svg>
-                        <span>You must complete the payment in 5 minutes.</span>
+                        <span>
+                            You must complete the payment in{" "}
+                            {formatTime(timeLeft)} minutes.
+                        </span>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-4">
@@ -56,10 +77,7 @@ const Checkout = () => {
                             </h3>
                             <div className="overflow-x-auto">
                                 <table className="table">
-                                    {/* head */}
-
                                     <tbody>
-                                        {/* row 1 */}
                                         <tr>
                                             <td>Tiket Price:</td>
                                             <td>1000</td>
@@ -72,7 +90,7 @@ const Checkout = () => {
                                             <td>Discount: </td>
                                             <td>0</td>
                                         </tr>
-                                        <hr />
+
                                         <tr>
                                             <td>
                                                 <span className="font-medium text-2xl uppercase">
@@ -120,19 +138,25 @@ const Checkout = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="agreement">
-                            <input
-                                type="checkbox"
-                                name="agreemnet"
-                                id="agreemnet"
-                                className=""
-                            />
-                            I am confirming that I have read, acknowledged and
-                            agree to the Terms of Use, Privacy Policy of Desh
-                            Ticket
+                        <div className="agreement mt-2">
+                            <label htmlFor="agreemnet">
+                                <input
+                                    type="checkbox"
+                                    name="agreemnet"
+                                    id="agreemnet"
+                                    className="w-[20px]"
+                                    onChange={() => setChecked(!checked)}
+                                />
+                                I am confirming that I have read, acknowledged
+                                and agree to the Terms of Use, Privacy Policy of
+                                Desh Ticket
+                            </label>
                         </div>
-                        <div className="proceed-to-payment">
-                            <button className="btn btn-primary w-full uppercase">
+                        <div className="proceed-to-payment mt-2">
+                            <button
+                                className="btn btn-primary w-full uppercase text-xl"
+                                disabled={!checked || !selectPaymentMethod}
+                            >
                                 Proceed To Payment
                             </button>
                         </div>

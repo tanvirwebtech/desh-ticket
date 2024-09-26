@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaPhoneAlt } from "react-icons/fa";
 import { GiSteeringWheel } from "react-icons/gi";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
-
-import { FaPhoneAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import SeatIcon from "./SeatIcon";
 
 const ViewSeats = () => {
     const [selectedSeat, setSelectedSeat] = useState([]);
-
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -211,6 +210,7 @@ const ViewSeats = () => {
     const onSubmit = (data) => {
         const newData = { ...data, selectedSeat };
         console.log(newData);
+        navigate("/checkout");
     };
     return (
         <div>
@@ -228,6 +228,10 @@ const ViewSeats = () => {
                             <p>Depature:</p>
                             <h3>06:30 AM</h3>
                         </div>
+                        <div className="arr time">
+                            <p>Arrival:</p>
+                            <h3>02:30 PM</h3>
+                        </div>
                         <div className="date">
                             <p>Journey Date:</p>
                             <h3>12/05/2024</h3>
@@ -236,10 +240,16 @@ const ViewSeats = () => {
                             <p>Available Seats:</p>
                             <h3>25</h3>
                         </div>
-                        <div className="arr time">
-                            <p>Arrival:</p>
-                            <h3>02:30 PM</h3>
-                        </div>
+                    </div>
+                </div>
+                <div className="div flex items-center justify-center gap-2 py-4 my-4 bg-base-200 rounded-sm">
+                    <div className="seat-color flex items-center gap-2">
+                        <div className="w-[30px] h-[30px] rounded-md bg-green-300"></div>{" "}
+                        Available Seat
+                    </div>
+                    <div className="seat-color flex items-center gap-2">
+                        <div className="w-[30px] h-[30px] rounded-md bg-red-200"></div>{" "}
+                        Booked Seat
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 my-4">
@@ -511,15 +521,15 @@ const ViewSeats = () => {
                                     </div>
                                 </div>
                                 <div className="proceed-btn mt-4">
-                                    <Link to="/checkout">
-                                        <button
-                                            type="submit"
-                                            className="btn btn-primary uppercase w-full"
-                                            disabled={!selectedSeat.length}
-                                        >
-                                            Proceed to checkout
-                                        </button>
-                                    </Link>
+                                    {/* <Link to="/checkout"> */}
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary uppercase w-full"
+                                        disabled={!selectedSeat.length}
+                                    >
+                                        Proceed to checkout
+                                    </button>
+                                    {/* </Link> */}
                                 </div>
                             </div>
                         </div>
